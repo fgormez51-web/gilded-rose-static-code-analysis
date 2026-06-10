@@ -4,7 +4,7 @@ function Item(name, sell_in, quality) {
   this.quality = quality;
 }
 
-var items = [];
+let items = [];
 
 items.push(new Item("+5 Dexterity Vest", 10, 20));
 items.push(new Item("Aged Brie", 2, 0));
@@ -14,13 +14,13 @@ items.push(new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20));
 items.push(new Item("Conjured Mana Cake", 3, 6));
 
 function update_quality() {
-  for (var i = 0; i < items.length; i++) {
+  for (let i = 0; i < items.length; i++) {
     update_item(items[i]);
   }
 }
 
 function update_item(item) {
-  if (item.name == "Sulfuras, Hand of Ragnaros") {
+  if (item.name === "Sulfuras, Hand of Ragnaros") {
     return;
   }
 
@@ -33,11 +33,11 @@ function update_item(item) {
 }
 
 function update_quality_for_item(item) {
-  if (item.name == "Aged Brie") {
+  if (item.name === "Aged Brie") {
     increase_quality(item);
-  } else if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
+  } else if (item.name === "Backstage passes to a TAFKAL80ETC concert") {
     update_backstage_pass(item);
-  } else if (item.name == "Conjured Mana Cake") {
+  } else if (item.name === "Conjured Mana Cake") {
     decrease_quality(item);
     decrease_quality(item);
   } else {
@@ -46,11 +46,11 @@ function update_quality_for_item(item) {
 }
 
 function update_expired_item(item) {
-  if (item.name == "Aged Brie") {
+  if (item.name === "Aged Brie") {
     increase_quality(item);
-  } else if (item.name == "Backstage passes to a TAFKAL80ETC concert") {
+  } else if (item.name === "Backstage passes to a TAFKAL80ETC concert") {
     item.quality = 0;
-  } else if (item.name == "Conjured Mana Cake") {
+  } else if (item.name === "Conjured Mana Cake") {
     decrease_quality(item);
     decrease_quality(item);
   } else {
